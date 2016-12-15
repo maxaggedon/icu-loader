@@ -1,0 +1,27 @@
+{
+  "name": "icu-loader",
+  "version": "1.0.0",
+  "description": "A Node.js package to load full ICU data in scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose; true;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msudgh/icu-loader.git"
+  },
+  "keywords": [
+    "node.js",
+    "icu",
+    "full-icu",
+    "i18n",
+    "intl",
+    "internationalization"
+  ],
+  "author": "Masoud Ghorbani <msud.ghorbani@gmail.com> (http://msud.ir/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msudgh/icu-loader/issues"
+  },
+  "homepage": "https://github.com/msudgh/icu-loader#readme"
+}
