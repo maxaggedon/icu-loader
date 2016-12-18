@@ -20,7 +20,8 @@ number.toLocaleString(30000000000, 'fa-IR', { style: 'currency', currency: 'IRR'
   * [Requirements](#requirements)
   * [Usage](#usage)
   * [Contributing](#contributing)
-
+  * [License](#license)
+  
 # Requirements
 ICU Loader requires the following to run:
   * [Node.js][1] 0.11.15+
