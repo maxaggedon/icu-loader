@@ -1,7 +1,9 @@
 # ICU Loader
 > A package to load full ICU data in Node.js environment with JavaScript Intl API
 
-ES modules example:
+To use [JavaScript Intl API][8], Node.js needs to run with --icu-data-dir option that provides us to have Intl API in our Node environment but because of structure of the Node.js we're not able to use this option directly as requiring it in our scripts. through child_process module this feature will be possible.
+
+Example (ES module):
 ```js
 import {date, string, number} from 'icu-loader'; // or import date from 'icu-loader;
 
@@ -26,7 +28,7 @@ ICU Loader requires the following to run:
 
 # Usage
 ICU Loader is easiest to use when installing with [npm][4]:
-```js
+```bash
 npm install icu-loader --save
 ```
 Then you can load the module into your code with a require or import way:
@@ -129,7 +131,7 @@ number.toLocaleString(30000000000, 'fa-IR', { style: 'currency', currency: 'IRR'
 
 # Contributing
 To contribute to ICU Loader, clone this repo locally and commit your code on the **`development`** branch. Please run the linter before opening a pull request:
-```js
+```bash
 ## To find out the errors
 npm run lint
 
@@ -155,3 +157,4 @@ Copyright © 2016, Masoud Ghorbani
   [5]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString#Parameters
   [6]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCampare#Parameters
   [7]: https://msudgh.mit-license.org/
+  [8]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Intl
