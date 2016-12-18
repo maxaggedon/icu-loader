@@ -54,7 +54,7 @@ All arguments of the methods of Date object are same, the following methods:
 #### Arguments
 | Argument Name        | Type                      | Description                                       |
 | -------------------- | ------------------------- | ------------------------------------------------- |
-| dateObj              | Date, String, Number      | the reference date object                         |
+| dateObj              | Date, String              | the reference date object                         |
 | locales              | String                    | the locales string that date will be displayed in |
 | options *            | Object<String>            | [documents][5]                                    |
 
