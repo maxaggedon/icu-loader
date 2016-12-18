@@ -1,13 +1,18 @@
 # ICU Loader
-A package to load full ICU data in Node.js environment with JavaScript Intl API
+> A package to load full ICU data in Node.js environment with JavaScript Intl API
 
 ES modules example:
 ```js
 import {date, string, number} from 'icu-loader'; // or import date from 'icu-loader;
 
-date.toLocaleString(new Date(2016, 9, 16), 'en-US', { year: 'numeric', month: 'long', day: 'numeric' }); // October 16, 2016
-string.localeCampare('ä', 'z', 'de'); // a negative value: in German, ä sorts before z
-number.toLocaleString(30000000000, 'fa-IR', { style: 'currency', currency: 'IRR' }) // ‎ریال۳۰٬۰۰۰٬۰۰۰٬۰۰۰
+// October 16, 2016
+date.toLocaleString(new Date(2016, 9, 16), 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+// a negative value: in German, ä sorts before z
+string.localeCampare('ä', 'z', 'de');
+
+// ‎ریال۳۰٬۰۰۰٬۰۰۰٬۰۰۰
+number.toLocaleString(30000000000, 'fa-IR', { style: 'currency', currency: 'IRR' });
 ```
 # Table of Contents
   * [Requirements](#requirements)
@@ -39,9 +44,9 @@ According to JavaScript Intl API, the module has the following objects ([Date](#
 
 ### Date
 All arguments of the methods of Date object are same, the following methods:
-  * toLocaleString(dateObj, locales, [options])
-  * toLocaleDateString(dateObj, locales, [options])
-  * toLocaleTimeString(dateObj, locales, [options])
+  * **toLocaleString(dateObj, locales, [options])**
+  * **toLocaleDateString(dateObj, locales, [options])**
+  * **toLocaleTimeString(dateObj, locales, [options])**
 
 #### Arguments
 | Argument Name        | Type                      | Description                                       |
@@ -73,7 +78,7 @@ date.toLocaleTimeString(new Date(), 'en-US', { hour12: false })); // "19:00:00"
 
 ### String
 The String object just has one method to comparing two string in same or different locales, the following method:
-  * localeCampare(referenceStr, compareString, locales, [options])
+  * **localeCampare(referenceStr, compareString, locales, [options])**
 
 #### Arguments
 | Argument Name        | Type           | Description                                        |
@@ -99,7 +104,7 @@ string.localeCompare('ä', 'a', 'de', { sensitivity: 'base' })); // 0
 
 ### Number
 Also, the Number object has one method to represent a number in different locales, the following method:
-  * toLocaleString(numberObj, locales, [options])
+  * **toLocaleString(numberObj, locales, [options])**
 
 #### Arguments
 | Argument Name        | Type                      | Description                                       |
@@ -125,13 +130,17 @@ number.toLocaleString(30000000000, 'fa-IR', { style: 'currency', currency: 'IRR'
 # Contributing
 To contribute to ICU Loader, clone this repo locally and commit your code on the **`development`** branch. Please run the linter before opening a pull request:
 ```js
-npm run lint # To find out the errors
+## To find out the errors
+npm run lint
 
-npm run lint:fix # To fix automatically the errors
+## To fix automatically the errors
+npm run lint:fix
 
-npm run dev # To run the developing task with the watcher
+## To run the developing task with the watcher
+npm run dev
 
-npm run build # To build the module
+## To build the module
+npm run build 
 ```
 
 # License
