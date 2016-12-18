@@ -1,8 +1,8 @@
 /*
  * To use JavaScript Intl API, Node.js needs to run with --icu-data-dir option that
- * provides us to have Intl API in our Node environment but because of structure of
+ * provides us to have Intl API in our Node environment but because of the structure of
  * the Node.js we're not able to use this option directly as requiring it in our scripts.
- * through child_process module this feature will be possible.
+ * through child_process module, this feature will be possible.
  */
 const libName = require('./package.json').name
 const execSync = require('child_process').execSync

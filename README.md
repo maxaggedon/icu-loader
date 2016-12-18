@@ -1,7 +1,7 @@
 # ICU Loader
 > A package to load full ICU data in Node.js environment with JavaScript Intl API
 
-To use [JavaScript Intl API][8], Node.js needs to run with --icu-data-dir option that provides us to have Intl API in our Node environment but because of structure of the Node.js we're not able to use this option directly as requiring it in our scripts. through child_process module this feature will be possible.
+To use [JavaScript Intl API][8], Node.js needs to run with --icu-data-dir option that provides us to have Intl API in our Node environment but because of the structure of the Node.js we're not able to use this option directly as requiring it in our scripts. through child_process module, this feature will be possible.
 
 Example (ES module):
 ```js
