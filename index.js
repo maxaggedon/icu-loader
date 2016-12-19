@@ -11,7 +11,7 @@ function execFunction (object, method, parameters) {
   let jsonObject = JSON.stringify(parameters)
 
   // Run scripts with ICU option
-  return execSync(`node --icu-data-dir=./node_modules/full-icu -p 'require("./dist/${libName}.js").${object}.${method}(${jsonObject})'`).toString()
+  return execSync(`node --icu-data-dir=./node_modules/full-icu -p 'require("./node_modules/icu-loader/dist/${libName}.js").${object}.${method}(${jsonObject})'`).toString()
 }
 
 /**

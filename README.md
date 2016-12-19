@@ -1,7 +1,7 @@
 # ICU Loader
 > A package to load full ICU data in Node.js environment with JavaScript Intl API
 
-To use [JavaScript Intl API][8], Node.js needs to run with --icu-data-dir option that provides us to have Intl API in our Node environment but because of the structure of the Node.js we're not able to use this option directly as requiring it in our scripts. through child_process module, this feature will be possible.
+To use [**`JavaScript Intl API`**][8], Node.js needs to run with **`--icu-data-dir`** option that provides us to have Intl API in our Node environment but because of the structure of the Node.js we're not able to use this option directly as requiring it in our scripts. through **`child_process`** module, this feature will be possible.
 
 Example (ES module):
 ```js
@@ -25,19 +25,19 @@ number.toLocaleString(30000000000, 'fa-IR', { style: 'currency', currency: 'IRR'
 # Requirements
 ICU Loader requires the following to run:
   * [Node.js][1] 0.11.15+
-  * [full-icu][2] package (It'll be install as dependencies)
+  * [full-icu][2] package (it'll be install as dependencies)
 
 # Usage
 ICU Loader is easiest to use when installing with [npm][4]:
 ```bash
 npm install icu-loader --save
 ```
-Then you can load the module into your code with a require or import way:
+Then you can load the module into your code by the ES module or CommonJS way:
 ```js
-// ES modules way
+// ES module
 import {date, string, number} from 'icu-loader'; // or import date from 'icu-loader;
 
-// Require way
+// CommonJS
 var date = require('icu-loader').date;
 var string = require('icu-loader').string;
 var number = require('icu-loader').number;
@@ -56,7 +56,7 @@ All arguments of the methods of Date object are same, the following methods:
 | -------------------- | ------------------------- | ------------------------------------------------- |
 | dateObj              | Date, String              | the reference date object                         |
 | locales              | String                    | the locales string that date will be displayed in |
-| options *            | Object<String>            | [documents][5]                                    |
+| options *            | Object                    | [documents][5]                                    |
 
 #### Example
 ```js
@@ -86,10 +86,10 @@ The String object just has one method to comparing two string in same or differe
 #### Arguments
 | Argument Name        | Type           | Description                                        |
 | -------------------- | -------------- | -------------------------------------------------- |
-| referenceStr         | String         | the reference string                               |
+| referenceStr         | String         | the reference string object                        |
 | compareString        | String         | the comparable string                              |
 | locales              | String         | the locales string that string will be compared in |
-| options *            | Object<String> | [documents][6]                                     |
+| options *            | Object         | [documents][6]                                     |
 
 #### Example
 ```js
@@ -110,11 +110,11 @@ Also, the Number object has one method to represent a number in different locale
   * **toLocaleString(numberObj, locales, [options])**
 
 #### Arguments
-| Argument Name        | Type                      | Description                                       |
-| -------------------- | ------------------------- | ------------------------------------------------- |
-| numberObj            | Number                    | the reference number object                       |
-| locales              | String                    | the locales string that date will be displayed in |
-| options *            | Object<String>            | [documents][5]                                    |
+| Argument Name        | Type                      | Description                                         |
+| -------------------- | ------------------------- | --------------------------------------------------- |
+| numberObj            | Number                    | the reference number object                         |
+| locales              | String                    | the locales string that number will be displayed in |
+| options *            | Object                    | [documents][5]                                      |
 
 #### Example
 ```js
@@ -139,7 +139,7 @@ npm run lint
 ## To fix automatically the errors
 npm run lint:fix
 
-## To run the developing task with the watcher
+## To run the developing task with watching
 npm run dev
 
 ## To build the module
