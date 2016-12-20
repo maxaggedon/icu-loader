@@ -4,6 +4,7 @@
   "description": "A package to load full ICU data in Node.js environment with JavaScript Intl API",
   "main": "index.js",
   "scripts": {
+    "test": "jest --verbose",
     "lint": "snazzy ./src/*.js index.js; true",
     "lint:fix": "npm run build && snazzy ./src/*.js index.js --fix; true",
     "build": "WEBPACK_ENV=production webpack; true",
@@ -40,6 +41,7 @@
     "babel-register": "^6.18.0",
     "flow-bin": "^0.37.0",
     "flow-typed": "^2.0.0",
+    "jest-cli": "^18.0.0",
     "lodash": "^4.17.2",
     "sloc": "^0.1.11",
     "snazzy": "^5.0.0",
