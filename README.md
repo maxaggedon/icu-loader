@@ -1,6 +1,8 @@
 # ICU Loader &middot; [![Travis](https://img.shields.io/travis/msudgh/icu-loader.svg?style=flat-square)](https://travis-ci.org/msudgh/icu-loader) [![npm](https://img.shields.io/npm/v/icu-loader.svg?style=flat-square)](https://www.npmjs.com/package/icu-loader) [![npm](https://img.shields.io/npm/l/icu-loader.svg?style=flat-square)](https://www.npmjs.com/package/icu-loader)
 > A package to load full ICU data in Node.js environment with JavaScript Intl API
 
+> Don't try it out to test on Browser environments.
+
 To use [**`JavaScript Intl API`**][8], Node.js needs to run with **`--icu-data-dir`** option that provides us to have Intl API in our Node environment but because of the structure of the Node.js we're not able to use this option directly as requiring it in our scripts. through **`child_process`** module, this feature will be possible.
 
 Example (ES module):

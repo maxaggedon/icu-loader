@@ -6,21 +6,51 @@
  */
 const libName = require('./package.json').name
 const execSync = require('child_process').execSync
+const fs = require('fs')
 
+/**
+ * Choose the correct path of library's index to execute
+ *
+ * @returns indexPath
+ */
+function indexChooser () {
+  let indexPath = `./node_modules/icu-loader/dist/${libName}.js`
+
+  try {
+    fs.accessSync(indexPath)
+  } catch (e) {
+    if (e.code === 'ENOENT') {
+      indexPath = `./dist/${libName}.js`
+    } else {
+      throw e
+    }
+  }
+
+  return indexPath
+}
+
+/**
+ * A function to handle child_process module and pass arguments of methods
+ *
+ * @param {string} object
+ * @param {string} method
+ * @param {any} parameters
+ * @returns execSync()
+ */
 function execFunction (object, method, parameters) {
   let jsonObject = JSON.stringify(parameters)
 
   // Run scripts with ICU option
-  return execSync(`node --icu-data-dir=./node_modules/full-icu -p 'require("./node_modules/icu-loader/dist/${libName}.js").${object}.${method}(${jsonObject})'`).toString()
+  return execSync(`node --icu-data-dir=./node_modules/full-icu -p 'require("${indexChooser()}").${object}.${method}(${jsonObject})'`).toString()
 }
 
 /**
  * Filtring types of the toLocale methods
  *
- * @param {any} object
+ * @param {stirng} object
  * @param {string} method
  * @param {any} parameters
- * @returns {any} execFunction
+ * @returns {string} execFunction
  */
 function toLocaleFilter (object, method, parameters) {
   let newParameters = {
