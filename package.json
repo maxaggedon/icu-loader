@@ -1,6 +1,6 @@
 {
   "name": "icu-loader",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A package to load full ICU data in Node.js environment with JavaScript Intl API",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,7 @@
     "lint:fix": "npm run build && snazzy ./src/*.js index.js --fix; true",
     "build": "WEBPACK_ENV=production webpack; true",
     "dev": "WEBPACK_ENV=development webpack --progress --colors --watch --display-error-details; true",
-    "stats-loc": "echo 'Source code stats:' && sloc --format cli-table ./src/*.js",
-    "prepublish": "npm run build"
+    "stats-loc": "echo 'Source code stats:' && sloc --format cli-table ./src/*.js"
   },
   "repository": {
     "type": "git",
