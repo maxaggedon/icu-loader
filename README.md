@@ -38,7 +38,7 @@ Then you can load the module into your codes by the ES module or CommonJS:
 import {IDate, IString, INumber} from 'icu-loader';
 
 // Or import specific class
-import IString from 'icu-loader;
+import IString from 'icu-loader';
 
 // CommonJS
 var date = require('icu-loader').date;
