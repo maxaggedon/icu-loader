@@ -1,14 +1,9 @@
-/* eslint-env jest */
-/*
- * The toLocaleString method should be test just in the Gregorian calendar because of
- * other calendars in Node.js isn't available.
- */
 jest.unmock('../src/date.js')
 jest.unmock('../src/string.js')
 jest.unmock('../src/number.js')
-import IDate from '../src/date'
-import IString from '../src/string'
-import INumber from '../src/number'
+let IDate = require('../src/date')
+let IString = require('../src/string')
+let INumber = require('../src/number')
 
 describe('Creating an instance of', () => {
   it('IDate class', () => {
@@ -16,11 +11,11 @@ describe('Creating an instance of', () => {
   })
 
   it('IString class', () => {
-    expect(typeof new IString()).toBe('object')
+    expect(typeof new IString('icu-loader')).toBe('object')
   })
 
   it('INumber class', () => {
-    expect(typeof new INumber()).toBe('object')
+    expect(typeof new INumber(123456789)).toBe('object')
   })
 })
 
