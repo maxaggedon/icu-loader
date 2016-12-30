@@ -34,9 +34,13 @@
     "lodash.isstring": "^4.0.1"
   },
   "devDependencies": {
+    "babel-loader": "^6.2.10",
     "jest-cli": "^18.0.0",
     "sloc": "^0.1.11",
     "snazzy": "^5.0.0",
     "standard": "^8.6.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
