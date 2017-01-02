@@ -21,7 +21,7 @@ module.exports = class IDate {
     dateObj = new Date(dateObj)
 
     // Check the type of parameter
-    if (dateObj.toString === 'Invalid Date') throw Error('Invalid Date object, enter correct dateString.')
+    if (dateObj.toString() === 'Invalid Date') throw Error('Invalid Date object, enter correct dateString.')
     else if (!isDate(dateObj)) throw Error('Invalid Date object, enter correct date.')
 
     this.date = dateObj
