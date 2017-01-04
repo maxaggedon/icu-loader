@@ -18,13 +18,16 @@ module.exports = class IDate {
    * @memberOf IDate
    */
   constructor (dateObj) {
-    dateObj = new Date(dateObj)
-
     // Check the type of parameter
-    if (dateObj.toString() === 'Invalid Date') throw Error('Invalid Date object, enter correct dateString.')
-    else if (!isDate(dateObj)) throw Error('Invalid Date object, enter correct date.')
+    if (dateObj === undefined) {
+      this.date = new Date()
+    } else if (typeof dateObj === 'string') {
+      this.date = new Date(dateObj)
+    } else {
+      if (!isDate(dateObj)) throw Error('Invalid Date, enter correct date.')
+      this.date = dateObj
+    }
 
-    this.date = dateObj
     this.locale = 'en-US'
     this.options = {}
   }
