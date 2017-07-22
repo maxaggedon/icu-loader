@@ -1,6 +1,6 @@
 'use strict'
 
-const execSync = require('child_process').execSync
+const methodCaller = require('./methodCaller')
 const isDate = require('lodash.isdate')
 
 /**
@@ -35,7 +35,7 @@ module.exports = class IDate {
    * @description
    * A method that handle other methods because of all methods have same prototype.
    *
-   * @param {string} method - the method's name that will be called by execSync
+   * @param {string} method - the method's name that will be called by exec
    * @param {string} locale - the method's locale name
    * @param {object} options - the method's options
    * @returns
@@ -50,7 +50,11 @@ module.exports = class IDate {
     let script = `new Date("${this.date}").${method}("${locale}", ${json})`
 
     // Run node command with script
-    return execSync(`node --icu-data-dir=./node_modules/full-icu -p '${script}'`).toString().trim()
+    return new Promise((resolve, reject) => {
+      methodCaller(script)
+      .then(result => resolve(result))
+      .catch(error => reject(error))
+    })
   }
   /**
    * @description
@@ -60,7 +64,11 @@ module.exports = class IDate {
    * @param {object} options
    */
   toLocaleString (locale, options) {
-    return this.methodHandler('toLocaleString', locale, options)
+    return new Promise((resolve, reject) => {
+      this.methodHandler('toLocaleString', locale, options)
+      .then(result => resolve(result))
+      .catch(error => reject(error))
+    })
   }
   /**
    * @description
@@ -71,7 +79,11 @@ module.exports = class IDate {
    * @param {object} options
    */
   toLocaleDateString (locale, options) {
-    return this.methodHandler('toLocaleDateString', locale, options)
+    return new Promise((resolve, reject) => {
+      this.methodHandler('toLocaleDateString', locale, options)
+      .then(result => resolve(result))
+      .catch(error => reject(error))
+    })
   }
   /**
    * @description
@@ -82,6 +94,10 @@ module.exports = class IDate {
    * @param {object} options
    */
   toLocaleTimeString (locale, options) {
-    return this.methodHandler('toLocaleTimeString', locale, options)
+    return new Promise((resolve, reject) => {
+      this.methodHandler('toLocaleTimeString', locale, options)
+      .then(result => resolve(result))
+      .catch(error => reject(error))
+    })
   }
 }
