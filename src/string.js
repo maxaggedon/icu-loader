@@ -1,18 +1,21 @@
 'use strict'
 
+/**
+ * Require modules
+ */
 const methodCaller = require('./methodCaller')
 const isString = require('lodash.isstring')
 
 /**
  * @description
- * A String class that cover localeCompare() method
+ * String class that cover localeCompare() method
  *
  * @class IString
  */
 module.exports = class IString {
   /**
    * @description
-   * Creates an instance of IString.
+   * Creates instance of IString.
    *
    * @param {string} stringObj - the reference String object
    * @memberOf IString
@@ -30,8 +33,8 @@ module.exports = class IString {
    * A method that handle other methods because of all methods have same prototype.
    *
    * @param {string} method - the method's name that will be called by exec
-   * @param {string} locale - the method's locale name
-   * @param {object} options - the method's options
+   * @param {string} locale - the locale
+   * @param {object} options - the options
    * @returns
    */
   methodHandler (method, compareString, locale, options) {
@@ -43,7 +46,6 @@ module.exports = class IString {
     let json = JSON.stringify(options)
     let script = `new String("${this.string}").${method}("${compareString}", "${locale}", ${json})`
 
-    // Run node command with script
     return new Promise((resolve, reject) => {
       methodCaller(script)
       .then(result => resolve(result))
@@ -56,8 +58,8 @@ module.exports = class IString {
    * before or after or is the same as the given string in sort order.
    *
    * @param {string} compareString - the compareable string
-   * @param {string} [locale=en-US] - the method's locale name
-   * @param {object} [options={}] - the method's options
+   * @param {string} locale
+   * @param {object} options
    */
   localeCompare (compareString, locale, options) {
     return new Promise((resolve, reject) => {

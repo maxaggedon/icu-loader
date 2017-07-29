@@ -1,18 +1,21 @@
 'use strict'
 
+/**
+ * Require modules
+ */
 const methodCaller = require('./methodCaller')
 const isNumber = require('lodash.isnumber')
 
 /**
  * @description
- * A Number class that cover toLocaleString() method
+ * Number class that cover toLocaleString() method
  *
  * @class INumber
  */
 module.exports = class INumber {
   /**
    * @description
-   * Creates an instance of INumber.
+   * Creates instance of INumber.
    *
    * @param {string} numberObj - the reference Number object
    * @memberOf INumber
@@ -30,8 +33,8 @@ module.exports = class INumber {
    * A method that handle other methods because of all methods have same prototype.
    *
    * @param {string} method - the method's name that will be called by exec
-   * @param {string} locale - the method's locale name
-   * @param {object} options - the method's options
+   * @param {string} locale - the locale
+   * @param {object} options - the options
    * @returns
    */
   methodHandler (method, locale, options) {
@@ -43,7 +46,6 @@ module.exports = class INumber {
     let json = JSON.stringify(options)
     let script = `new Number("${this.number}").${method}("${locale}", ${json})`
 
-    // Run node command with script
     return new Promise((resolve, reject) => {
       methodCaller(script)
       .then(result => resolve(result))
@@ -54,8 +56,8 @@ module.exports = class INumber {
    * @description
    * The toLocaleString() method returns a string with a language sensitive representation of this number.
    *
-   * @param {string} [locale=en-US] - the method's locale name
-   * @param {object} [options={}] - the method's options
+   * @param {string} locale
+   * @param {object} options
    */
   toLocaleString (locale, options) {
     return new Promise((resolve, reject) => {

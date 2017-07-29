@@ -1,8 +1,13 @@
+'use strict'
+
+/**
+ * Require modules
+ */
 const exec = require('child_process').exec
 
 module.exports = (script) => {
-  // Run node command with script
   return new Promise((resolve, reject) => {
+    // Run node command with icu data
     exec(`node --icu-data-dir=./node_modules/full-icu -p '${script}'`, (err, stdout, stderr) => {
       if (err) {
         reject(err)

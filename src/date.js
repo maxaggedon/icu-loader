@@ -1,18 +1,21 @@
 'use strict'
 
+/**
+ * Require modules
+ */
 const methodCaller = require('./methodCaller')
 const isDate = require('lodash.isdate')
 
 /**
  * @description
- * A Date class that cover 3 methods of JavaScript Intl API
+ * Date class that cover methods of JavaScript Intl API
  *
  * @class IDate
  */
 module.exports = class IDate {
   /**
    * @description
-   * Creates an instance of IDate.
+   * Creates instance of IDate.
    *
    * @param {date} dateObj - the reference Date object
    * @memberOf IDate
@@ -36,8 +39,8 @@ module.exports = class IDate {
    * A method that handle other methods because of all methods have same prototype.
    *
    * @param {string} method - the method's name that will be called by exec
-   * @param {string} locale - the method's locale name
-   * @param {object} options - the method's options
+   * @param {string} locale - the locale
+   * @param {object} options - the options
    * @returns
    */
   methodHandler (method, locale, options) {
@@ -49,7 +52,6 @@ module.exports = class IDate {
     let json = JSON.stringify(options)
     let script = `new Date("${this.date}").${method}("${locale}", ${json})`
 
-    // Run node command with script
     return new Promise((resolve, reject) => {
       methodCaller(script)
       .then(result => resolve(result))
