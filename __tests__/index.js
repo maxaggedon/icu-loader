@@ -1,6 +1,3 @@
-jest.unmock('../src/date.js')
-jest.unmock('../src/string.js')
-jest.unmock('../src/number.js')
 let IDate = require('../src/date')
 let IString = require('../src/string')
 let INumber = require('../src/number')
