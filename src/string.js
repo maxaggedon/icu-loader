@@ -1,6 +1,6 @@
 'use strict'
 
-const execSync = require('child_process').execSync
+const methodCaller = require('./methodCaller')
 const isString = require('lodash.isstring')
 
 /**
@@ -27,6 +27,31 @@ module.exports = class IString {
   }
   /**
    * @description
+   * A method that handle other methods because of all methods have same prototype.
+   *
+   * @param {string} method - the method's name that will be called by exec
+   * @param {string} locale - the method's locale name
+   * @param {object} options - the method's options
+   * @returns
+   */
+  methodHandler (method, compareString, locale, options) {
+    // To support version 4 of Node.js
+    locale = locale || this.locale
+    options = options || this.options
+
+    // Pass options as JSON
+    let json = JSON.stringify(options)
+    let script = `new String("${this.string}").${method}("${compareString}", "${locale}", ${json})`
+
+    // Run node command with script
+    return new Promise((resolve, reject) => {
+      methodCaller(script)
+      .then(result => resolve(result))
+      .catch(error => reject(error))
+    })
+  }
+  /**
+   * @description
    * The localeCompare() method returns a number indicating whether a reference string comes
    * before or after or is the same as the given string in sort order.
    *
@@ -35,15 +60,10 @@ module.exports = class IString {
    * @param {object} [options={}] - the method's options
    */
   localeCompare (compareString, locale, options) {
-    // To support version 4 of Node.js
-    locale = locale || this.locale
-    options = options || this.options
-
-    // Pass options as JSON
-    let json = JSON.stringify(options)
-    let script = `new String("${this.string}").localeCompare("${compareString}", "${locale}", ${json})`
-
-    // Run node command with script
-    return execSync(`node --icu-data-dir=./node_modules/full-icu -p '${script}'`).toString().trim()
+    return new Promise((resolve, reject) => {
+      this.methodHandler('compareString', compareString, locale, options)
+      .then(result => resolve(result))
+      .catch(error => reject(error))
+    })
   }
 }

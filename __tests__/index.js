@@ -25,11 +25,15 @@ describe('toLocaleString Method', () => {
 
   // Expect "10/16/2016, 2:00:00 AM"
   it('Using', () => {
-    expect(new IDate(date).toLocaleString()).toBe('10/16/2016, 2:00:00 AM')
+    new IDate(date).toLocaleString().then(result => {
+      expect(result).toBe('10/16/2016, 2:00:00 AM')
+    })
   })
 
   // Expect "Sunday, October 16, 2016"
   it('Using Options', () => {
-    expect(new IDate(date).toLocaleString('en-US', dateOptions)).toBe('Sunday, October 16, 2016')
+    new IDate(date).toLocaleString('en-US', dateOptions).then(result => {
+      expect(result).toBe('Sunday, October 16, 2016')
+    })
   })
 })
