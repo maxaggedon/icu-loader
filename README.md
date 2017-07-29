@@ -10,9 +10,9 @@ To use [**`JavaScript Intl API`**][8], Node.js needs to run with **`--icu-data-d
 ```js
 import { IDate } from 'icu-loader'
 
-// October 16, 2016
 let date = new IDate(new Date(2016, 9, 16))
-date.toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+date.toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  .then(result => console.log(result)) // October 16, 2016
 ```
 
 # Table of Contents
@@ -82,16 +82,20 @@ date.toLocaleString('en-US'); // "9/16/2016, 0:00:00 PM"
 
 // request a weekday along with a long date
 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-date.toLocaleString('de-DE', options); // "Sonntag, 16. Oktober 2016"
+date.toLocaleString('de-DE', options)
+  .then(result => cosnole.log(result)); // "Sonntag, 16. Oktober 2016"
 
 // Arabic in most Arabic speaking countries uses real Arabic digits
-date.toLocaleDateString('ar-EG'); // "۲۰۱۶/۹/۱۶"
+date.toLocaleDateString('ar-EG')
+  .then(result => cosnole.log(result)); // "۲۰۱۶/۹/۱۶"
 
 // Korean uses year-month-day order and 12-hour time with AM/PM
-date.toLocaleTimeString(new Date(2016, 9, 16, 14, 15, 05), 'ko-KR'); // "오후 2:15:05"
+date.toLocaleTimeString(new Date(2016, 9, 16, 14, 15, 05), 'ko-KR')
+  .then(result => cosnole.log(result)); // "오후 2:15:05"
 
 // sometimes even the US needs 24-hour time
-date.toLocaleTimeString(new Date(), 'en-US', { hour12: false })); // "19:00:00"
+date.toLocaleTimeString(new Date(), 'en-US', { hour12: false }))
+  .then(result => cosnole.log(result)); // "19:00:00"
 ```
 
 ### IString
@@ -120,13 +124,16 @@ The IString class just has one method to comparing two string in same or differe
 import IString from 'icu-loader'
 
 // The letter  "a" is before "c" yielding a negative value
-new IString('a').localeCompare('c') // -2 or -1 (or some other negative valu e)
+new IString('a').localeCompare('c')
+  .then(result => cosnole.log(result)); // -2 or -1 (or some other negative valu e)
 
 // Using locales
-new IString('ä').localeCompare('z', 'sv'); // a positive value: in Swedish, ä sorts after z
+new IString('ä').localeCompare('z', 'sv')
+  .then(result => cosnole.log(result)); // a positive value: in Swedish, ä sorts after z
 
 // in German, ä has a as the base letter
-new IString('ä').localeCompare('a', 'de', { sensitivity: 'base' })); // 0
+new IString('ä').localeCompare('a', 'de', { sensitivity: 'base' }))
+  .then(result => cosnole.log(result)); // 0
 ```
 
 ### Number
@@ -153,13 +160,16 @@ this class has one method to represent a number in different locales, the follow
 import INumber from 'icu-loader';
 
 // English locale
-new INumber(3500).toLocaleString(); // Displays "3,500" if in U.S.
+new INumber(3500).toLocaleString()
+  .then(result => cosnole.log(result)); // Displays "3,500" if in U.S.
 
 // German uses comma as decimal separator and period for thousands
-new INumber(123456.789).toLocaleString('de-DE'); // 123.456,789
+new INumber(123456.789).toLocaleString('de-DE')
+  .then(result => cosnole.log(result)); // 123.456,789
 
 // Using options
-new INumber(30000000000).toLocaleString('fa-IR', { style: 'currency', currency: 'IRR' }) // ‎ریال۳۰٬۰۰۰٬۰۰۰٬۰۰۰
+new INumber(30000000000).toLocaleString('fa-IR', { style: 'currency', currency: 'IRR' })
+  .then(result => cosnole.log(result)); // ‎ریال۳۰٬۰۰۰٬۰۰۰٬۰۰۰
 ```
 
 # Contributing
