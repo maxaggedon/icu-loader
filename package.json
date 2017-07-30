@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "babel-loader": "^6.2.10",
-    "chalk": "^2.0.1",
     "jest-cli": "^18.0.0",
     "sloc": "^0.1.11",
     "snazzy": "^5.0.0",
