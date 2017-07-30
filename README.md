@@ -78,7 +78,8 @@ import IDate from 'icu-loader'
 let date = new IDate (new Date(2016, 9, 16))
 
 // US English uses month-day-year order and 12-hour time with AM/PM
-date.toLocaleString('en-US'); // "9/16/2016, 0:00:00 PM"
+date.toLocaleString('en-US')
+  .then(result => console.log(result)); // "9/16/2016, 0:00:00 PM"
 
 // request a weekday along with a long date
 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
