@@ -41,9 +41,9 @@ import {IDate, IString, INumber} from 'icu-loader';
 import IString from 'icu-loader';
 
 // CommonJS
-var date = require('icu-loader').date;
-var string = require('icu-loader').string;
-var number = require('icu-loader').number;
+let date = require('icu-loader').IDate;
+let string = require('icu-loader').IString;
+let number = require('icu-loader').INumber;
 ```
 According to JavaScript Intl API, the module has the following objects ([IDate](#date), [IString](#string), [INumber](#number)) and various methods.
 > The star (*) sign means the argument is optional.
