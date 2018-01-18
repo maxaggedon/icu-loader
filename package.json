@@ -29,19 +29,17 @@
   },
   "homepage": "https://github.com/msudgh/icu-loader#readme",
   "dependencies": {
-    "full-icu": "^1.0.3",
+    "full-icu": "^1.2.0",
     "lodash.isdate": "^4.0.1",
     "lodash.isnumber": "^3.0.3",
     "lodash.isstring": "^4.0.1"
   },
   "devDependencies": {
     "babel-loader": "^6.2.10",
-    "jest-cli": "^18.0.0",
+    "jest": "^22.1.2",
+    "jest-cli": "^22.1.2",
     "sloc": "^0.1.11",
     "snazzy": "^5.0.0",
     "standard": "^8.6.0"
-  },
-  "jest": {
-    "testEnvironment": "node"
   }
 }
