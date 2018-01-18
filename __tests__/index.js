@@ -36,4 +36,11 @@ describe('toLocaleString Method', () => {
       expect(result).toBe('Sunday, October 16, 2016')
     })
   })
+
+  // Expect "Sunday, October 16, 2016"
+  it('Farsi locale', () => {
+    new IDate(date).toLocaleString('fa-IR', dateOptions).then(result => {
+      expect(result).toBe('یکشنبه ۲۵ مهر ۱۳۹۵ ه‍.ش.')
+    })
+  })
 })
