@@ -75,7 +75,7 @@ All arguments of the methods of Date object are same, the following methods:
 ```js
 import IDate from 'icu-loader'
 
-let date = new IDate (new Date(2016, 9, 16))
+let date = new IDate(new Date(2016, 9, 16))
 
 // US English uses month-day-year order and 12-hour time with AM/PM
 date.toLocaleString('en-US')
@@ -189,7 +189,7 @@ npm run lint:fix
 # License
 ICU Loader is licensed under the [MIT][7] license, also [full-icu][2] package is part of [ICU][3].
 
-Copyright © 2016, Masoud Ghorbani
+Copyright © 2018, Masoud Ghorbani
 
   [1]: https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V6.md#6.2.0
   [2]: https://www.npmjs.com/package/full-icu/
