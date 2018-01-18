@@ -1,6 +1,6 @@
 {
   "name": "icu-loader",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "A package to load full ICU data in Node.js environment with JavaScript Intl API",
   "main": "index.js",
   "scripts": {
